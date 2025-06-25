@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ja" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Splash Flower - ファッション</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-gray-50 text-gray-800 overflow-x-hidden">
+
+<header id="header" class="fixed top-0 left-0 w-full z-50 transition-all duration-300 bg-white/70 backdrop-blur-md shadow-sm" x-data="{ open: false }">
+  <nav class="container mx-auto px-6 py-3">
+    <div class="flex justify-between items-center">
+      <div class="text-xl font-bold text-[#f06292]"> 
+        <a href="#home">Splash Flower</a>
+      </div>
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#home" class="text-gray-600 hover:text-[#f06292] transition-colors duration-300 font-medium">Home</a>
+        <a href="#shop" class="text-gray-600 hover:text-[#f06292] transition-colors duration-300 font-medium">Shop</a>
+        <a href="#lookbook" class="text-gray-600 hover:text-[#f06292] transition-colors duration-300 font-medium">Lookbook</a>
+        <a href="#contact" class="text-gray-600 hover:text-[#f06292] transition-colors duration-300 font-medium">Contact</a>
+      </div>
+      <div class="md:hidden">
+<button @click="open = !open" 
+  class="text-gray-800 hover:text-[#f06292] focus:outline-none transition-colors duration-300 relative pb-1">
+  <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+  </svg>
+</button>
+      </div>
+    </div>
+
+<div x-show="open" @click.away="open = false"
+     x-transition:enter="transition ease-out duration-200"
+     x-transition:enter-start="opacity-0 transform -translate-y-2"
+     x-transition:enter-end="opacity-100 transform translate-y-0"
+     x-transition:leave="transition ease-in duration-150"
+     x-transition:leave-start="opacity-100 transform translate-y-0"
+     x-transition:leave-end="opacity-0 transform -translate-y-2"
+     class="md:hidden absolute top-full left-0 w-full bg-white shadow-xl py-2 z-50
+            flex overflow-x-auto space-x-4 px-4"
+     style="scrollbar-width:none;">
+  <a href="#home" @click="open = false" class="block min-w-[80px] py-2 text-center text-gray-700 hover:bg-gray-100 hover:text-[#f06292] whitespace-nowrap">Home</a>
+  <a href="#shop" @click="open = false" class="block min-w-[80px] py-2 text-center text-gray-700 hover:bg-gray-100 hover:text-[#f06292] whitespace-nowrap">Shop</a>
+  <a href="#lookbook" @click="open = false" class="block min-w-[80px] py-2 text-center text-gray-700 hover:bg-gray-100 hover:text-[#f06292] whitespace-nowrap">Lookbook</a>
+  <a href="#contact" @click="open = false" class="block min-w-[80px] py-2 text-center text-gray-700 hover:bg-gray-100 hover:text-[#f06292] whitespace-nowrap">Contact</a>
+</div>
+  </nav>
+</header>
+<main>
+  <section id="home" class="relative h-[100dvh] flex items-center justify-center text-center overflow-hidden">
+    <video autoplay loop muted playsinline class="absolute top-1/2 left-1/2 w-auto min-w-full min-h-full max-w-none -translate-x-1/2 -translate-y-1/2 z-0 object-cover">
+      <source src="video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+    <div class="absolute inset-0 bg-black/30 z-10"></div>
+    <div class="relative z-20 text-white px-4">
+      <h1 class="brand-title text-4xl sm:text-6xl md:text-8xl font-bold">Splash Flower</h1>
+      <p class="hero-text-shadow text-xl sm:text-2xl md:text-3xl mt-4 font-medium">毎日を新しく生まれ変わる</p>
+      <a href="#shop" class="mt-8 inline-block bg-white text-gray-800 font-bold py-3 px-8 rounded-full shadow-lg hover:bg-[#f06292] hover:text-white transform hover:-translate-y-1 transition-all duration-300">
+        商品一覧へ
+      </a>
+    </div>
+  </section>
+
+  <section id="shop" class="py-20 md:py-32 bg-white">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Our Collection</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto mb-12">海辺の風を感じる、自由で心地よいスタイル。あなただけの一着を見つけて。</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+        <!-- 商品カード1 -->
+        <a href="product-details-seaside.html" class="group relative rounded-lg shadow-xl overflow-hidden aspect-video block transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
+          <img src="水彩画.jpg" alt="Seaside Dress" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end p-6 text-white">
+            <div>
+              <h3 class="text-2xl font-bold mb-1">水彩画</h3>
+              <p class="text-lg">¥2,000</p>
+            </div>
+          </div>
+        </a>
+        <!-- 商品カード2 -->
+        <a href="product-details-waveknit.html" class="group relative rounded-lg shadow-xl overflow-hidden aspect-video block transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
+          <img src="わい.jpg" alt="Wave Knit" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end p-6 text-white">
+            <div>
+              <h3 class="text-2xl font-bold mb-1">ワイのやつ</h3>
+              <p class="text-lg">¥3,000</p>
+            </div>
+          </div>
+        </a>
+        <!-- 商品カード3 -->
+        <a href="product-details-bread.html" class="group relative rounded-lg shadow-xl overflow-hidden aspect-video block transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
+          <img src="パン.jpg" alt="パン Tシャツ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end p-6 text-white">
+            <div>
+              <h3 class="text-2xl font-bold mb-1">パン</h3>
+              <p class="text-lg">¥1,500</p>
+            </div>
+          </div>
+        </a>
+        <!-- 商品カード4 -->
+        <a href="product-details-sneakers.html" class="group relative rounded-lg shadow-xl overflow-hidden aspect-video block transform transition-transform duration-300 hover:-translate-y-1 hover:shadow-2xl">
+          <img src="スニーカー.webp" alt="スニーカー" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent flex items-end p-6 text-white">
+            <div>
+              <h3 class="text-2xl font-bold mb-1">どこかにあるやつ</h3>
+              <p class="text-lg">¥2,000</p>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="lookbook" class="py-20 md:py-32 bg-gray-50">
+    <div class="container mx-auto px-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold mb-4">Lookbook</h2>
+      <p class="text-gray-600 max-w-2xl mx-auto mb-12">Splash Flowerが彩る、輝く瞬間。スタイリングのインスピレーションに。</p>
+      <div class="relative w-full aspect-video rounded-lg shadow-xl overflow-hidden max-w-4xl mx-auto">
+        <iframe
+          class="absolute top-0 left-0 w-full h-full rounded-lg"
+          src="https://www.youtube.com/embed/kJMJvx5gSEM?controls=1&modestbranding=1&showinfo=0&rel=0"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contact" class="bg-gray-800 text-white py-12">
+  <div class="container mx-auto px-6 text-center">
+    <h3 class="text-2xl font-bold mb-4">Contact Us</h3>
+    <p class="mb-2">ご質問・お問い合わせはこちらまで</p>
+    <a href="mailto:hello@splashflower.example.com" class="text-[#f06292] hover:underline">hello@splashflower.example.com</a>
+    <p class="mt-8 text-sm text-gray-400">© 2025 Splash Flower. All Rights Reserved.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

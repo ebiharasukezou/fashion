@@ -1,0 +1,56 @@
+body {
+    font-family: 'Noto Sans JP', sans-serif;
+    background-color: #F8F9FA;
+}
+.brand-title {
+    font-family: 'Dancing Script', cursive;
+    background: linear-gradient(45deg, #ff007f, #00bfff, #ffea00);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+.hero-text-shadow {
+    text-shadow: -1px -1px 0 #E91E63, 1px -1px 0 #2196F3, -1px 1px 0 #FFC107, 1px 1px 0 #9C27B0;
+}
+.chart-container {
+    position: relative;
+    width: 100%;
+    max-width: 400px; 
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
+/* Stylish effect for navigation links on hover */
+.nav-links a {
+  position: relative;
+  text-decoration: none; /* Ensure no default underline */
+}
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; /* Adjust position relative to text */
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #f06292; /* Underline color */
+  transition: width 0.3s ease-out; /* Animation for width */
+}
+.nav-links a:hover::after {
+  width: 100%; /* Expand underline on hover */
+}
+
+header nav button::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 2px;
+  width: 0;
+  background-color: #f06292;
+  transition: width 0.3s ease;
+  border-radius: 1px;
+}
+
+header nav button:hover::after {
+  width: 100%;
+}
